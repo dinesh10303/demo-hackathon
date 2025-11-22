@@ -1,0 +1,41 @@
+name: Ingress deploy
+
+on:
+
+  workflow_dispatch:
+
+jobs:
+  deploy-ingress:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: Ingress/
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Google Cloud SDK
+      - name: gcp auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}  # Store project ID as a secret in GitHub
+          credentials_json: ${{ secrets.GCP_SA_KEY }}  # Store the service account key as a secret
+
+      - id: 'get-credentials'
+        uses: 'google-github-actions/get-gke-credentials@v3'
+        with:
+          cluster_name: 'autopilot-cluster-1'
+          location: 'us-central1'
+
+      - name: kubectl apply Ingress
+        run: |
+          kubectl apply -f Ingress.yml
+
+
+        
+
+      
+
