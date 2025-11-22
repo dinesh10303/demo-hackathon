@@ -3,7 +3,9 @@ name: Docker Build and Push to GCP Artifact Registry
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch, change if needed
+      - master  # Trigger on push to the main branch, change if needed
+
+  workflow_dispatch:
 
 jobs:
   build_and_push:
