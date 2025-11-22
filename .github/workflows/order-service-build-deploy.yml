@@ -1,4 +1,4 @@
-name: Docker Build and Push to GCP Artifact Registry for patient-service
+name: Docker Build and deploy to GKE for order-service
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: patient-service/
+        working-directory: order-service/
 
     steps:
       # Step 1: Checkout the repository
@@ -35,9 +35,9 @@ jobs:
       # Step 4: Build the Docker image
       - name: Build Docker image
         run: |
-          docker build -t us-east1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/demo-hackathon/patient-service:${{ github.run_number }} .
+          docker build -t us-east1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/demo-hackathon/order-service:${{ github.run_number }} .
 
       # Step 5: Push Docker image to GCP Artifact Registry
       - name: Push Docker image
         run: |
-          docker push us-east1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/demo-hackathon/patient-service:${{ github.run_number }}
+          docker push us-east1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/demo-hackathon/order-service:${{ github.run_number }}
