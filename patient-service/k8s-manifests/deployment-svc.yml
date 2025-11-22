@@ -19,7 +19,6 @@ spec:
           image: us-east1-docker.pkg.dev/strange-mind-478215-f0/demo-hackathon/patient-service:latest
           ports:
             - containerPort: 3000
-      serviceAccountName: demo-hackathon@strange-mind-478215-f0.iam.gserviceaccount.com
 ---
 apiVersion: v1
 kind: Service
@@ -32,4 +31,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 3000
-  type: ClusterIP
+  type: NodePort

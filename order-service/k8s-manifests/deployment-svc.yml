@@ -19,7 +19,6 @@ spec:
           image: us-east1-docker.pkg.dev/strange-mind-478215-f0/demo-hackathon/order-service:latest
           ports:
             - containerPort: 8080
-      serviceAccountName: demo-hackathon@strange-mind-478215-f0.iam.gserviceaccount.com
 ---
 apiVersion: v1
 kind: Service
@@ -32,4 +31,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
-  type: ClusterIP
+  type: NodePort
