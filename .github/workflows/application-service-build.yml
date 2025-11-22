@@ -11,6 +11,10 @@ jobs:
   build_and_push:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: application-service/
+
     steps:
       # Step 1: Checkout the repository
       - name: Checkout code
