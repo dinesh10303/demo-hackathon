@@ -19,7 +19,6 @@ spec:
           image: us-east1-docker.pkg.dev/strange-mind-478215-f0/demo-hackathon/application-service:latest
           ports:
             - containerPort: 3001
-      serviceAccountName: demo-hackathon@strange-mind-478215-f0.iam.gserviceaccount.com
 ---
 apiVersion: v1
 kind: Service
