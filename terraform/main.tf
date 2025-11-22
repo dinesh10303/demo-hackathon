@@ -1,3 +1,3 @@
 provider "google" {
-    project = "glossy-motif-478215-t4"
+    project = "strange-mind-478215-f0"
 }
