@@ -32,6 +32,10 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT_ID }}  # Store project ID as a secret in GitHub
           credentials_json: ${{ secrets.GCP_SA_KEY }}
 
+      # Step 3: Initialize Terraform
+      - name: Terraform Init
+        run: terraform init
+        
       - name: Terraform fmt
         run: terraform fmt
 
