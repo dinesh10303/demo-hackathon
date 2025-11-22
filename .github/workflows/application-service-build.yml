@@ -31,9 +31,9 @@ jobs:
       # Step 4: Build the Docker image
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/demo-hackathon/application-service:${{ github.run_number }} .
+          docker build -t us-east1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/demo-hackathon/application-service:${{ github.run_number }} .
 
       # Step 5: Push Docker image to GCP Artifact Registry
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/demo-hackathon/application-service:${{ github.run_number }}
+          docker push us-east1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/demo-hackathon/application-service:${{ github.run_number }}
