@@ -26,7 +26,7 @@ jobs:
       # Step 3: Configure Docker to authenticate with GCP
       - name: Configure Docker for GCP
         run: |
-          gcloud auth configure-docker ${{ secrets.GCP_REGION }}-docker.pkg.dev
+          gcloud auth configure-docker us-east1-docker.pkg.dev
 
       # Step 4: Build the Docker image
       - name: Build Docker image
